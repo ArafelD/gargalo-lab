@@ -1,0 +1,22 @@
+# docker compose up --build lab                  -> roda os 8 labs (saída em ./output)
+# docker compose run --rm --build tests          -> roda os 17 testes
+# docker compose run --rm --build verify         -> confere os resultados de referência do artigo
+# docker compose --profile owasp up juice-shop   -> alvo de treino OWASP opcional (só localhost)
+services:
+  lab:
+    build: .
+    volumes:
+      - ./output:/app/output
+  tests:
+    build: .
+    command: ["python", "-m", "unittest", "-v"]
+  verify:
+    build: .
+    command: ["python", "-m", "gargalo_lab", "verify", "--out", "/app/output"]
+    volumes:
+      - ./output:/app/output
+  juice-shop:
+    profiles: ["owasp"]
+    image: bkimminich/juice-shop
+    ports:
+      - "127.0.0.1:3000:3000"   # exposto SOMENTE na sua máquina

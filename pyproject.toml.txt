@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gargalo-lab"
+version = "1.0.0"
+description = "Oito laboratórios defensivos que acompanham o artigo 'O gênio de fora ou o analista de dentro?'"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "gargalo-lab contributors" }]
+keywords = ["security", "blue-team", "dfir", "mitre-attack", "education", "synthetic-data"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Education",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Security",
+    "Topic :: Education",
+]
+dependencies = [
+    "Pillow>=10.1",
+    "numpy>=1.26",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/SEU_USUARIO/gargalo-lab"
+Repository = "https://github.com/SEU_USUARIO/gargalo-lab"
+Issues = "https://github.com/SEU_USUARIO/gargalo-lab/issues"
+
+[project.scripts]
+gargalo-lab = "gargalo_lab.cli:main"
+
+[tool.setuptools]
+packages = ["gargalo_lab"]

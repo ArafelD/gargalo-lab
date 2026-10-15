@@ -1,4 +1,4 @@
-# ⚖️ Gargalo-lab
+# ⚖️ gargalo-lab
 
 > **Oito laboratórios defensivos** que acompanham o artigo *"O gênio de fora ou o analista de dentro?"*, sobre onde a segurança da informação realmente quebra: no acesso, nas pessoas e nas provas. Inspirados em *Jason Bourne* (2016) e *Operação Vingança* (*The Amateur*, 2025).
 
@@ -13,6 +13,9 @@
 ![MITRE ATT&CK](https://img.shields.io/badge/MITRE%20ATT%26CK-T1091%20%7C%20T1200%20%7C%20T1071%20%7C%20T1078%20%7C%20T1213-red)
 ![Synthetic data](https://img.shields.io/badge/data-100%25%20synthetic-lightgrey)
 
+## O artigo
+
+O texto completo está em [`docs/ARTIGO.md`](docs/ARTIGO.md). Este repositório é a parte prática: cada laboratório simula, com dados sintéticos, um conceito explicado no artigo e produz um resultado que você pode conferir.
 
 ## Os 8 laboratórios
 
@@ -29,6 +32,24 @@
 
 Detalhes de cada lab (como funciona, arquivos gerados, limites): [`docs/LABS.md`](docs/LABS.md).
 
+## Início rápido
+
+```bash
+git clone https://github.com/SEU_USUARIO/gargalo-lab.git && cd gargalo-lab
+python3 -m venv .venv && source .venv/bin/activate
+make install
+
+make test      # 17 testes
+make verify    # confere os 16 resultados de referência da tabela acima
+make run       # roda os 8 labs e grava os arquivos em ./output
+```
+
+Um lab específico: `python -m gargalo_lab 05` (ou `photo`). Com Docker: `docker compose up --build lab`, `docker compose run --rm --build tests` e `docker compose run --rm --build verify`.
+
+O `verify` gera `output/REFERENCE_CHECK.md` com o resultado de cada afirmação da tabela (✅ / ❌), então qualquer mudança no código que quebre um número do artigo é detectada.
+
+Opcional: `docker compose --profile owasp up juice-shop` sobe o OWASP Juice Shop, aplicação propositalmente vulnerável, exposta apenas em `127.0.0.1`, para estudar controle de acesso em ambiente seu.
+
 ## Estrutura
 
 ```
@@ -44,9 +65,10 @@ Os modelos são simplificados (câmeras paralelas, ruído gaussiano, logs e trá
 
 ## Ética e uso responsável
 
-Este artigo e o laboratório técnico associado (gargalo-lab) têm finalidade exclusivamente educacional. Toda a telemetria usada no laboratório (logs, tráfego de rede, imagens, metadados e registros de acesso) é sintética, gerada artificialmente por código, sem qualquer malware real e sem coleta ou tratamento de dados de terceiros. Os endereços de rede pertencem a faixas reservadas para documentação, e as coordenadas de GPS usadas na demonstração de metadados correspondem a um marco público, não a uma pessoa. O mecanismo do dead man’s switch é apenas uma simulação em memória, sem envio, vazamento ou conteúdo real.
+Conteúdo educacional e defensivo. Nenhum código malicioso, nenhum envio real de mensagens, nenhum dado pessoal. Pratique apenas em ambientes seus ou com autorização por escrito.
 
-Nenhuma técnica aqui descrita foi aplicada contra sistemas, redes ou pessoas reais sem autorização. Este conteúdo não incentiva, não ensina e não endossa o acesso não autorizado a sistemas de informação, nos termos da Lei nº 12.737/2012 (Lei Carolina Dieckmann), tampouco qualquer forma de tratamento indevido de dados pessoais, conforme a Lei nº 13.709/2018 (LGPD). Ferramentas e práticas mencionadas devem ser usadas apenas em ambientes próprios ou com autorização expressa e por escrito do responsável pelo sistema.
+## Licença
 
-Jason Bourne e Operação Vingança são obras de ficção; seus personagens e eventos não representam fatos reais, e as marcas citadas pertencem aos seus titulares. As informações sobre pessoas reais, como Kevin Mitnick, baseiam-se exclusivamente em fontes públicas listadas ao final. Os números dos experimentos vêm de simulações didáticas com modelos simplificados e não substituem perícia, auditoria ou consultoria profissional, nem constituem aconselhamento jurídico. O objetivo é exclusivamente formativo, voltado à compreensão de engenharia social, ameaça interna, forense digital e resposta a incidentes por profissionais e estudantes de segurança da informação.
-## — Porque conhecimento ofensivo só tem valor quando serve pra fortalecer a defesa. ⚔️
+MIT. Veja [LICENSE](LICENSE).
+
+— Porque conhecimento ofensivo só tem valor quando serve pra fortalecer a defesa. ⚔️
