@@ -13,9 +13,6 @@
 ![MITRE ATT&CK](https://img.shields.io/badge/MITRE%20ATT%26CK-T1091%20%7C%20T1200%20%7C%20T1071%20%7C%20T1078%20%7C%20T1213-red)
 ![Synthetic data](https://img.shields.io/badge/data-100%25%20synthetic-lightgrey)
 
-## O artigo
-
-O texto completo está em [`docs/ARTIGO.md`](docs/ARTIGO.md). Este repositório é a parte prática: cada laboratório simula, com dados sintéticos, um conceito explicado no artigo e produz um resultado que você pode conferir.
 
 ## Os 8 laboratórios
 
@@ -64,9 +61,6 @@ docs/          # ARTIGO.md, LABS.md, MITRE_MAPPING.md
 Os modelos são simplificados (câmeras paralelas, ruído gaussiano, logs e tráfego sintéticos). Servem para **ensinar o raciocínio**, não para uso pericial ou operacional.
 
 ## Ética e uso responsável
-
-Este artigo e o laboratório técnico associado (gargalo-lab) têm finalidade
-Aviso legal e uso responsável
 
 Este artigo e o laboratório técnico associado (gargalo-lab) têm finalidade exclusivamente educacional. Toda a telemetria usada no laboratório (logs, tráfego de rede, imagens, metadados e registros de acesso) é sintética, gerada artificialmente por código, sem qualquer malware real e sem coleta ou tratamento de dados de terceiros. Os endereços de rede pertencem a faixas reservadas para documentação, e as coordenadas de GPS usadas na demonstração de metadados correspondem a um marco público, não a uma pessoa. O mecanismo do dead man’s switch é apenas uma simulação em memória, sem envio, vazamento ou conteúdo real.
 
