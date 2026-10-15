@@ -29,24 +29,6 @@
 
 Detalhes de cada lab (como funciona, arquivos gerados, limites): [`docs/LABS.md`](docs/LABS.md).
 
-## Início rápido
-
-```bash
-git clone https://github.com/SEU_USUARIO/gargalo-lab.git && cd gargalo-lab
-python3 -m venv .venv && source .venv/bin/activate
-make install
-
-make test      # 17 testes
-make verify    # confere os 16 resultados de referência da tabela acima
-make run       # roda os 8 labs e grava os arquivos em ./output
-```
-
-Um lab específico: `python -m gargalo_lab 05` (ou `photo`). Com Docker: `docker compose up --build lab`, `docker compose run --rm --build tests` e `docker compose run --rm --build verify`.
-
-O `verify` gera `output/REFERENCE_CHECK.md` com o resultado de cada afirmação da tabela (✅ / ❌), então qualquer mudança no código que quebre um número do artigo é detectada.
-
-Opcional: `docker compose --profile owasp up juice-shop` sobe o OWASP Juice Shop, aplicação propositalmente vulnerável, exposta apenas em `127.0.0.1`, para estudar controle de acesso em ambiente seu.
-
 ## Estrutura
 
 ```
